@@ -1,4 +1,847 @@
-<!--
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Roxana Noemí Saucedo Rojas">
+  <meta name="creator" content="Roxana Noemí Saucedo Rojas">
+  <meta name="rights" content="© 2026 Roxana Noemí Saucedo Rojas. Todos los derechos de desarrollo web reservados.">
+  <meta name="copyright" content="© 2026 Roxana Noemí Saucedo Rojas">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Dublin Core Metadata for Copyright Protection -->
+  <meta name="DC.title" content="Conocimiento en Órbita - Portal Institucional IFTS Nº 13">
+  <meta name="DC.creator" content="Roxana Noemí Saucedo Rojas">
+  <meta name="DC.creator.email" content="roxanan.saucedo@gmail.com">
+  <meta name="DC.rights" content="© 2026 Roxana Noemí Saucedo Rojas. Todos los derechos de desarrollo web reservados. CC BY-NC-ND 4.0">
+  <meta name="DC.date" content="2026-10-07">
+  <meta name="DC.issued" content="2026-08-01">
+  <meta name="DC.modified" content="2026-10-07">
+  
+  <!-- Schema.org Structured Data for Creator Attribution -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Conocimiento en Órbita",
+    "url": "https://conocimientoenorbita.wordpress.com",
+    "creator": {
+      "@type": "Person",
+      "name": "Roxana Noemí Saucedo Rojas",
+      "email": "roxanan.saucedo@gmail.com",
+      "url": "https://roxsaucedo.github.io/roxanasaucedo/"
+    },
+    "copyrightHolder": {
+      "@type": "Person",
+      "name": "Roxana Noemí Saucedo Rojas"
+    },
+    "copyrightYear": 2026,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+  }
+  </script>
+  
+  <title>Conocimiento en Órbita</title>
+  <meta name="description" content="Portal de divulgación, producciones, agenda y arte de la Tecnicatura en Bibliotecología del IFTS N.º 13">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap');
+
+    :root{
+      --paper: #FFFFFF;
+      --paper-soft: #F2F5F4;
+      --ink: #111111;
+      --ink-soft: #52585A;
+      --blue: #0E76BD;
+      --blue-ink: #0A5C93;
+      --green: #0B9345;
+      --green-ink: #087736;
+      --line: rgba(17,17,17,0.14);
+      --focus: #0E76BD;
+    }
+    @media (prefers-color-scheme: dark){
+      :root:not([data-theme="light"]){
+        --paper: #121417;
+        --paper-soft: #191C1F;
+        --ink: #EDEFF1;
+        --ink-soft: #A6ACAF;
+        --blue-ink: #4FA3E0;
+        --line: rgba(237,239,241,0.16);
+      }
+    }
+    :root[data-theme="dark"]{
+      --paper: #121417;
+      --paper-soft: #191C1F;
+      --ink: #EDEFF1;
+      --ink-soft: #A6ACAF;
+      --blue-ink: #4FA3E0;
+      --line: rgba(237,239,241,0.16);
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; background:var(--paper); color:var(--ink);
+      font-family:'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    h1,h2,h3,h4,h5{ font-family:'Archivo Black', 'Arial Black', sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:-0.01em; text-wrap:balance; margin:0; }
+    p{ margin:0; }
+    a{ color:inherit; }
+    .num{ font-family:'Roboto Slab', Georgia, serif; font-weight:700; }
+    .eyebrow{
+      font-family:'IBM Plex Mono', ui-monospace, monospace;
+      font-size:0.72rem; font-weight:500; letter-spacing:0.09em; text-transform:uppercase;
+      color:var(--blue-ink);
+    }
+    .wrap{ max-width:1160px; margin:0 auto; padding-left:28px; padding-right:28px; }
+    section{ padding:88px 0; }
+    @media (max-width:720px){ section{ padding:56px 0; } .wrap{ padding-left:20px; padding-right:20px; } }
+
+    a:focus-visible, button:focus-visible, input:focus-visible{
+      outline:3px solid var(--focus); outline-offset:2px; border-radius:2px;
+    }
+
+    .sample-tag{
+      display:inline-flex; align-items:center; gap:5px; font-family:'IBM Plex Mono', monospace;
+      font-size:0.66rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft);
+      background:var(--paper-soft); border:1px dashed var(--line); padding:4px 9px; border-radius:20px;
+    }
+    .sample-tag svg{ width:10px; height:10px; flex:none; }
+
+    /* ---------- header ---------- */
+    header{
+      position:sticky; top:0; z-index:50; background:var(--paper);
+      border-bottom:2px solid var(--ink);
+    }
+    .headbar{ display:flex; align-items:center; justify-content:space-between; gap:24px; padding:12px 0; }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .brand img{ width:42px; height:42px; flex:none; border-radius:3px; display:block; }
+    .brand .brand-text{ line-height:1.15; }
+    .brand .brand-text .name{ font-family:'Archivo Black', sans-serif; font-size:0.98rem; color:var(--ink); text-transform:uppercase; letter-spacing:-0.01em; }
+    .brand .brand-text .sub{ font-family:'IBM Plex Mono', monospace; font-size:0.63rem; color:var(--ink-soft); letter-spacing:0.05em; }
+    nav.mainnav{ display:flex; align-items:center; gap:2px; }
+    nav.mainnav a{
+      position:relative; text-decoration:none; font-size:0.88rem; font-weight:600; color:var(--ink-soft);
+      padding:9px 13px; border-radius:4px;
+    }
+    nav.mainnav a:hover, nav.mainnav a.active{ color:var(--ink); background:var(--paper-soft); }
+    .has-sub{ position:relative; }
+    .submenu{
+      position:absolute; top:calc(100% + 4px); left:0; min-width:220px;
+      background:var(--paper); border:1px solid var(--ink); border-radius:6px;
+      padding:6px; opacity:0; visibility:hidden;
+      transform:translateY(-4px); transition:opacity .15s ease, transform .15s ease, visibility .15s;
+    }
+    .has-sub:hover .submenu, .has-sub:focus-within .submenu{ opacity:1; visibility:visible; transform:translateY(0); }
+    .submenu a{ display:block; padding:9px 11px; border-radius:4px; font-size:0.86rem; }
+    .submenu a small{ display:block; font-size:0.74rem; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+    .head-actions{ display:flex; align-items:center; gap:10px; }
+    .icon-btn{
+      display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px;
+      border-radius:4px; border:1px solid var(--line); background:transparent; color:var(--ink-soft); cursor:pointer;
+    }
+    .icon-btn:hover{ color:var(--ink); border-color:var(--ink); }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; font-family:'Inter'; font-weight:700; font-size:0.88rem;
+      padding:11px 20px; border-radius:4px; text-decoration:none; cursor:pointer; border:2px solid transparent;
+      white-space:nowrap;
+    }
+    .btn-blue{ background:var(--blue); color:#fff; border-color:var(--blue); }
+    .btn-blue:hover{ background:var(--blue-ink); border-color:var(--blue-ink); }
+    .btn-outline{ border-color:var(--ink); color:var(--ink); background:transparent; }
+    .btn-outline:hover{ background:var(--ink); color:var(--paper); }
+    .navtoggle{ display:none; }
+    @media (max-width:900px){
+      nav.mainnav{ display:none; }
+      .navtoggle{ display:inline-flex; }
+    }
+
+    /* ---------- hero ---------- */
+    .hero{ padding-top:64px; padding-bottom:72px; }
+    .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; }
+    @media (max-width:940px){ .hero-grid{ grid-template-columns:1fr; gap:40px; } }
+    .hero h1{ font-size:clamp(1.9rem, 3.6vw, 2.9rem); line-height:1.12; margin:14px 0 20px; }
+    .hero p.lede{ font-size:1.08rem; line-height:1.55; color:var(--ink-soft); max-width:48ch; }
+    .hero-ctas{ display:flex; gap:12px; margin-top:28px; flex-wrap:wrap; }
+    .orbit-wrap{ position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; }
+    .orbit-wrap canvas{ width:100%; height:100%; }
+
+    /* ---------- band dividers ---------- */
+    .band{ padding:12px 0; text-align:center; }
+    .band-blue{ background:var(--blue); color:#fff; }
+    .band-green{ background:var(--green); color:#fff; }
+    .band p{ font-family:'IBM Plex Mono', monospace; font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; }
+
+    /* ---------- section headers ---------- */
+    .sec-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:20px; margin-bottom:16px; flex-wrap:wrap; }
+    .sec-head h2{ font-size:clamp(1.35rem, 2.1vw, 1.8rem); margin-top:8px; }
+    .sec-link{ font-size:0.88rem; font-weight:700; color:var(--blue-ink); text-decoration:none; white-space:nowrap; }
+    .sec-link:hover{ text-decoration:underline; }
+
+    /* ---------- GRID LAYOUT ---------- */
+    .grid-container {
+      display: grid;
+      gap: 28px;
+      margin-top: 32px;
+      margin-bottom: 0;
+      width: 100%;
+    }
+    .grid-1 { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .grid-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--paper);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+    .grid-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue) 0%, var(--green) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .grid-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 12px 32px rgba(14, 118, 189, 0.15);
+      transform: translateY(-6px);
+    }
+    .grid-card:hover::before { opacity: 1; }
+
+    .grid-card-header {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--paper-soft) 0%, rgba(14, 118, 189, 0.06) 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .grid-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+      flex: 1;
+    }
+    .grid-card-category {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin: 0;
+    }
+    .grid-card-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      color: var(--ink);
+      margin: 0;
+    }
+    .grid-card-meta {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      font-weight: 600;
+      margin: 0;
+    }
+    .grid-card-excerpt {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin: 0;
+      flex: 1;
+    }
+    .grid-card-footer {
+      display: flex;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      margin-top: auto;
+    }
+    .grid-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 18px;
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      flex: 1;
+      text-align: center;
+      justify-content: center;
+    }
+    .grid-card-btn:hover {
+      background: var(--blue-ink);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(14, 118, 189, 0.25);
+    }
+
+    /* DETAILS Y SUMMARY INTERACTIVOS */
+    details {
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    details[open] {
+      background: var(--paper-soft);
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 12px;
+    }
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--blue);
+      user-select: none;
+      padding: 8px 0;
+      list-style: none;
+      cursor: pointer;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "▼";
+      font-size: 0.7rem;
+      transition: transform 0.3s ease;
+    }
+    details[open] > summary::after { transform: rotate(180deg); }
+
+    /* TARJETAS DOCENTES GRID */
+    .teacher-grid-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 28px 24px;
+      background: var(--paper);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      gap: 14px;
+      position: relative;
+    }
+    .teacher-grid-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 12px 32px rgba(14, 118, 189, 0.15);
+      transform: translateY(-6px);
+    }
+    .teacher-grid-avatar {
+      width: 72px; height: 72px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.5rem; color: #fff; background: var(--blue);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .teacher-grid-name {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.05rem; text-transform: uppercase; color: var(--ink); margin: 0;
+    }
+    .teacher-grid-subject {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--blue); margin: 0;
+    }
+    .teacher-grid-title { font-size: 0.85rem; color: var(--ink-soft); margin: 0; line-height: 1.4; }
+
+    /* TARJETAS GRADUADOS GRID */
+    .alumni-card {
+      background: var(--paper); border: 1.5px solid var(--line); border-radius: 12px;
+      padding: 28px 24px; display: flex; flex-direction: column; gap: 14px;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    .alumni-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 12px 32px rgba(14, 118, 189, 0.15);
+      transform: translateY(-6px);
+    }
+    .alumni-card .avatar-lg {
+      width: 64px; height: 64px; border-radius: 10px; display: flex;
+      align-items: center; justify-content: center; font-family: 'Archivo Black';
+      font-size: 1.5rem; color: #fff; background: var(--blue);
+    }
+    .alumni-card h3 { font-family: 'Inter'; font-size: 1.15rem; font-weight: 700; margin: 0; }
+    .alumni-card .profession { font-size: 0.92rem; font-weight: 600; color: var(--blue-ink); }
+    .alumni-card .company { font-size: 0.9rem; color: var(--ink-soft); }
+    .alumni-card .bio { font-size: 0.88rem; line-height: 1.55; color: var(--ink-soft); flex: 1; }
+
+    /* RESPONSIVE GRID MEDIA QUERIES */
+    @media (max-width: 1024px) {
+      .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- agenda ---------- */
+    .agenda-list{ display:flex; flex-direction:column; border-top:1px solid var(--line); margin-top:28px; }
+    .agenda-row{ display:flex; align-items:center; gap:20px; padding:16px 4px; border-bottom:1px solid var(--line); }
+    .date-badge{
+      font-family:'Roboto Slab', serif; font-weight:700; text-align:center; color:#fff;
+      border-radius:4px; padding:7px 4px; line-height:1.15; flex:none; width:58px;
+    }
+    .date-badge .mon{ display:block; font-family:'IBM Plex Mono', monospace; font-weight:500; font-size:0.62rem; letter-spacing:0.05em; text-transform:uppercase; opacity:0.9; }
+    .date-badge .day{ display:block; font-size:1.15rem; }
+    .agenda-row .info{ flex:1; min-width:0; }
+    .agenda-row h4{ font-family:'Inter'; font-size:0.95rem; font-weight:700; margin-bottom:3px; }
+    .agenda-row .where{ font-size:0.82rem; color:var(--ink-soft); }
+
+    /* ---------- servicios ---------- */
+    .serv-row{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; margin-top:28px; }
+    @media (max-width:1200px){ .serv-row{ grid-template-columns:repeat(2, 1fr); } }
+    @media (max-width:720px){ .serv-row{ grid-template-columns:1fr; } }
+    .serv-card{ background:var(--paper); border:1.5px solid var(--ink); border-radius:8px; padding:26px; }
+    .serv-card h3{ font-family:'Inter'; text-transform:none; font-size:1.15rem; font-weight:700; margin:0 0 8px; }
+    .serv-card .role{ font-size:0.9rem; color:var(--ink-soft); font-weight:600; margin-bottom:12px; }
+    .serv-card .desc{ font-size:0.9rem; line-height:1.55; color:var(--ink-soft); margin-bottom:18px; }
+    .serv-card .contact{ font-size:0.88rem; }
+    .serv-card .contact a{ font-weight:600; color:var(--blue-ink); text-decoration:none; }
+
+    /* ---------- footer ---------- */
+    footer{ border-top:2px solid var(--ink); padding:48px 0 28px; }
+    .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; margin-bottom:36px; }
+    @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; } }
+    .foot-grid h5{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:12px; }
+    .foot-grid ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+    .foot-grid a{ text-decoration:none; color:var(--ink-soft); font-size:0.88rem; }
+    .foot-grid a:hover{ color:var(--ink); }
+    .foot-brand p{ color:var(--ink-soft); font-size:0.9rem; margin-top:12px; max-width:36ch; line-height:1.6; }
+    .foot-end{ display:flex; justify-content:space-between; align-items:center; gap:20px; padding-top:24px; border-top:1px solid var(--line); font-size:0.84rem; color:var(--ink-soft); flex-wrap:wrap; }
+    .legal-notice{ margin-top:32px; padding-top:24px; border-top:1px solid var(--line); font-size:0.78rem; color:var(--ink-soft); line-height:1.6; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headbar">
+    <a class="brand" href="#top" aria-label="Conocimiento en Órbita, inicio">
+      <svg width="42" height="42" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="6.5" fill="var(--blue)"/>
+        <path d="M20 3.5C10 3.5 3 10.5 3 20" stroke="var(--green)" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="20" cy="20" rx="17" ry="8.5" transform="rotate(-18 20 20)" stroke="var(--ink-soft)" stroke-width="1.4" fill="none" opacity="0.55"/>
+        <circle cx="33.2" cy="12.4" r="2.6" fill="var(--blue-ink)"/>
+      </svg>
+      <span class="brand-text">
+        <span class="name">Conocimiento en Órbita</span><br>
+        <span class="sub">IFTS N.º 13 · BIBLIOTECOLOGÍA</span>
+      </span>
+    </a>
+    <nav class="mainnav" aria-label="Principal">
+      <a href="#divulgacion">Divulgación</a>
+      <div class="has-sub">
+        <a href="#producciones" aria-haspopup="true">Producciones ▾</a>
+        <div class="submenu">
+          <a href="#producciones">Voces del 13<small>Podcast estudiantil</small></a>
+          <a href="#expedicion">Expedición Creativa<small>Muestra de arte</small></a>
+        </div>
+      </div>
+      <a href="#agenda">Agenda</a>
+      <a href="#docentes">Docentes</a>
+      <a href="#graduados">Graduados</a>
+      <a href="#servicios">Servicios</a>
+    </nav>
+    <div class="head-actions">
+      <button class="icon-btn" aria-label="Buscar en el sitio">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <a class="btn btn-blue" href="mailto:revistaifts13@gmail.com">Contacto</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Tecnicatura en Bibliotecología · IFTS N.º 13</p>
+        <h1>El portal de divulgación de la biblioteca del 13</h1>
+        <p class="lede">Artículos de divulgación, producciones estudiantiles y la agenda de la carrera, todo en un mismo lugar — con la identidad oficial del instituto.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-blue" href="mailto:revistaifts13@gmail.com">Suscribirme al boletín</a>
+          <a class="btn btn-outline" href="#agenda">Ver la agenda</a>
+        </div>
+      </div>
+      <div class="orbit-wrap">
+        <canvas id="orbitCanvas" role="img" aria-label="Ilustración animada de secciones del sitio orbitando el número 13 del instituto"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <div class="band band-blue"><p>Instituto de Formación Técnica Superior N.º 13 — Buenos Aires</p></div>
+
+  <!-- DIVULGACION -->
+  <section id="divulgacion">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Divulgación</p>
+          <h2>Lo último para leer</h2>
+        </div>
+      </div>
+
+      <!-- ARTÍCULO DESTACADO -->
+      <div class="featured-article" style="margin-bottom:48px; padding:40px; background:var(--paper-soft); border-radius:8px; border-left:4px solid var(--blue);">
+        <div style="max-width:80ch;">
+          <p class="eyebrow" style="margin-bottom:12px;">Artículo destacado</p>
+          <h2 style="font-size:2rem; line-height:1.3; margin-bottom:24px;">Aulas en Silencio: La Deuda Histórica con las Bibliotecas de Educación Especial en CABA</h2>
+          
+          <div class="author-info" style="display:flex; align-items:center; gap:16px; margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid var(--line);">
+            <div class="avatar" style="width:48px; height:48px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700;">AP</div>
+            <div>
+              <p style="font-weight:600; margin:0;">Andrea F. Perrando</p>
+              <p style="font-size:0.9rem; color:var(--ink-soft); margin:4px 0 0 0;">Autora · Especialista en Educación Especial<br>Exalumna IFTS 13 (Bibliotecología) e IFTS 28 (Gestión Cultural)</p>
+            </div>
+          </div>
+
+          <div style="font-size:1.05rem; line-height:1.8; color:var(--ink);">
+            <p style="margin-bottom:20px;">Durante más de trece años, he trabajado en el sistema de educación pública dentro del área de Educación Especial en la Ciudad Autónoma de Buenos Aires. A lo largo de este recorrido, me encuentro con una ausencia sistemática: la falta de espacios bibliotecarios diseñados específicamente para estudiantes con discapacidades visuales, auditivas, cognitivas y motoras.</p>
+            <p style="margin-bottom:20px;">Las bibliotecas tradicionales no están pensadas para todes. Los catálogos no contemplan formatos accesibles. Los materiales de lectura no incluyen recursos en braille, audiolibros o textos en lenguaje de signos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCCIONES / EXPEDICION CREATIVA -->
+  <section id="expedicion" style="background:var(--paper-soft);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Producciones Estudiantiles</p>
+          <h2>Expedición Creativa</h2>
+        </div>
+      </div>
+
+      <div class="grid-container grid-2">
+        
+        <!-- OBRA 1: Julieta Mora -->
+        <div class="grid-card">
+          <div class="grid-card-header" style="background:linear-gradient(135deg, var(--blue) 0%, var(--blue-ink) 100%); color:#fff; text-align:center;">
+            <span style="font-size:2.5rem;">📖</span>
+          </div>
+          <div class="grid-card-body">
+            <p class="grid-card-category">Novela / Ficción</p>
+            <h3 class="grid-card-title">Proyecto Literario</h3>
+            <p class="grid-card-meta">Por Julieta Mora</p>
+            <p class="grid-card-excerpt">Obra narrativa y proyecto literario de ficción desarrollado por la alumna Julieta Mora, explorando la construcción de mundos literarios e identidad.</p>
+            
+            <details>
+              <summary>Conocer el arte de los alumnos</summary>
+              <div style="font-size:0.9rem; color:var(--ink-soft); line-height:1.6;">
+                <p>Esta producción se enmarca en las iniciativas de creación literaria y narrativa contemporánea promovidas por los estudiantes de la carrera de Bibliotecología del IFTS N.º 13.</p>
+              </div>
+            </details>
+          </div>
+          <div class="grid-card-footer">
+            <a href="mailto:revistaifts13@gmail.com" class="grid-card-btn">Ver más información</a>
+          </div>
+        </div>
+
+        <!-- OBRA 2: Roxana Noemí Saucedo Rojas -->
+        <div class="grid-card">
+          <div class="grid-card-header" style="background:linear-gradient(135deg, var(--green) 0%, var(--green-ink) 100%); color:#fff; text-align:center;">
+            <span style="font-size:2.5rem;">✍️</span>
+          </div>
+          <div class="grid-card-body">
+            <p class="grid-card-category">Poesía / Publicación Independiente</p>
+            <h3 class="grid-card-title">Ahogándome en palabras</h3>
+            <p class="grid-card-meta">Por Roxana Noemí Saucedo Rojas[cite: 1, 13]</p>
+            <p class="grid-card-excerpt">Libro de poesía de autoría original publicado e impreso en edición independiente. Una exploración poética sobre la memoria, la voz propia y el lenguaje.</p>
+            
+            <details>
+              <summary>Conocer el arte de los alumnos</summary>
+              <div style="font-size:0.9rem; color:var(--ink-soft); line-height:1.6;">
+                <p>Obra poética publicada de la autora Roxana Noemí Saucedo Rojas[cite: 1, 13]. Explora la interacción entre la palabra escrita, la carga emotiva y la reconstrucción del relato personal a través de la métrica y el verso libre.</p>
+              </div>
+            </details>
+          </div>
+          <div class="grid-card-footer">
+            <a href="mailto:roxanan.saucedo@gmail.com" class="grid-card-btn">Ver más información</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section id="agenda">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Fechas clave</p>
+          <h2>Agenda académica e institucional</h2>
+        </div>
+      </div>
+      <div class="agenda-list">
+        <div class="agenda-row">
+          <div class="date-badge" style="background:var(--blue);"><span class="mon">OCT</span><span class="day">15</span></div>
+          <div class="info">
+            <h4>Jornada de Tecnologías en Bibliotecas</h4>
+            <div class="where">Modalidad Híbrida · IFTS N.º 13</div>
+          </div>
+        </div>
+        <div class="agenda-row">
+          <div class="date-badge" style="background:var(--green);"><span class="mon">NOV</span><span class="day">02</span></div>
+          <div class="info">
+            <h4>Presentación de Trabajos Prácticos Integradores</h4>
+            <div class="where">Aula Magna / Campus Virtual</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUESTROS DOCENTES / NÓMINA -->
+  <section id="docentes" style="background:var(--paper-soft);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Cuerpo Académico</p>
+          <h2>Nuestros Docentes</h2>
+        </div>
+        <a class="sec-link" href="https://ifts13.blog/listado/" target="_blank" rel="noopener">Ver nómina oficial completa →</a>
+      </div>
+
+      <div class="grid-container grid-1" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+        
+        <!-- ÚNICA DOCENTE VISIBLE: María Emilia Coronado -->
+        <div class="teacher-grid-card">
+          <div class="teacher-grid-avatar">MEC</div>
+          <h3 class="teacher-grid-name">María Emilia Coronado</h3>
+          <p class="teacher-grid-subject">Información Científico-Técnica y Energía</p>
+          <p class="teacher-grid-title">Docente Titular · Especialista en Fuentes de Información Técnico-Científica y Sector Energético</p>
+          
+          <details style="width: 100%;">
+            <summary style="justify-content: center;">Ver más</summary>
+            <div style="font-size:0.88rem; color:var(--ink-soft); line-height:1.6; text-align: left; padding-top: 8px;">
+              <p>Profesional y docente especializada en el tratamiento, curaduría e investigación de recursos de información dentro de las ciencias aplicadas, la tecnología y el sector energético. Coordina cátedras orientadas al análisis documental especializado en el IFTS N.º 13.</p>
+            </div>
+          </details>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RED DE GRADUADOS -->
+  <section id="graduados">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Comunidad Alumni</p>
+          <h2>Red de Graduados</h2>
+        </div>
+      </div>
+
+      <div class="grid-container grid-2">
+        
+        <!-- GRADUADA 1: María Emilia Coronado -->
+        <div class="alumni-card">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div class="avatar-lg">MEC</div>
+            <div>
+              <h3>María Emilia Coronado</h3>
+              <div class="profession">Graduada en Bibliotecología</div>
+              <div class="company">Docente e Investigadora en Info. Científico-Técnica</div>
+            </div>
+          </div>
+          <div class="bio">
+            Graduada del IFTS N.º 13 especializada en la gestión de información científico-técnica y energía. Desarrolla su actividad profesional en la docencia de nivel superior y la consultoría técnica documental.
+          </div>
+          <details>
+            <summary>Ver más</summary>
+            <div style="font-size:0.88rem; color:var(--ink-soft); line-height:1.6; padding-top:8px;">
+              <p>Participa activamente en la mentoría de estudiantes y en la actualización académica sobre recursos de información en áreas tecnológicas e industriales.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- GRADUADA 2: Andrea F. Perrando -->
+        <div class="alumni-card">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div class="avatar-lg" style="background:var(--green);">AFP</div>
+            <div>
+              <h3>Andrea F. Perrando</h3>
+              <div class="profession">Bibliotecóloga y Gestora Cultural</div>
+              <div class="company">Especialista en Educación Especial</div>
+            </div>
+          </div>
+          <div class="bio">
+            Exalumna del IFTS 13 (Bibliotecología) e IFTS 28 (Gestión Cultural). Autora del destacado ensayo "Aulas en Silencio", enfocado en la accesibilidad e inclusión en las bibliotecas de Educación Especial en CABA.
+          </div>
+          <details>
+            <summary>Ver más</summary>
+            <div style="font-size:0.88rem; color:var(--ink-soft); line-height:1.6; padding-top:8px;">
+              <p>Posee más de 13 años de trayectoria en el sistema educativo público de la Ciudad de Buenos Aires, promoviendo espacios bibliotecarios accesibles y programas de lectura inclusivos.</p>
+            </div>
+          </details>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" style="background:var(--paper-soft);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Recursos</p>
+          <h2>Servicios bibliotecarios</h2>
+        </div>
+      </div>
+      <div class="serv-row">
+        <div class="serv-card">
+          <h3>Consulta y Préstamo</h3>
+          <div class="role">Servicio Presencial y Digital</div>
+          <p class="desc">Acceso al catálogo bibliográfico, fondo documental técnico y colecciones especiales de la carrera.</p>
+          <div class="contact">
+            <div>Contacto: <a href="mailto:revistaifts13@gmail.com">revistaifts13@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="serv-card">
+          <h3>Referencia Especializada</h3>
+          <div class="role">Asesoramiento en Investigación</div>
+          <p class="desc">Acompañamiento en búsquedas académicas, normas de citación y localización de fuentes primarias.</p>
+          <div class="contact">
+            <div>Contacto: <a href="mailto:revistaifts13@gmail.com">revistaifts13@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="serv-card">
+          <h3>Boletín e Intercambio</h3>
+          <div class="role">Publicaciones y Difusión</div>
+          <p class="desc">Espacio abierto a la recepción de artículos, ensayos y producciones creativas de la comunidad académica.</p>
+          <div class="contact">
+            <div>Contacto: <a href="mailto:revistaifts13@gmail.com">revistaifts13@gmail.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <h5>Conocimiento en Órbita</h5>
+        <p>Portal institucional y revista digital de la Tecnicatura Superior en Bibliotecología del IFTS N.º 13.</p>
+      </div>
+      <div>
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#divulgacion">Divulgación</a></li>
+          <li><a href="#expedicion">Expedición Creativa</a></li>
+          <li><a href="#agenda">Agenda</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Comunidad</h5>
+        <ul>
+          <li><a href="#docentes">Docentes</a></li>
+          <li><a href="#graduados">Graduados</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto Editorial</h5>
+        <ul>
+          <li><a href="mailto:revistaifts13@gmail.com">revistaifts13@gmail.com</a></li>
+          <li><a href="https://ifts13.blog/listado/" target="_blank" rel="noopener">Nómina Oficial IFTS 13</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-end">
+      <div>© 2026 Conocimiento en Órbita · IFTS N.º 13</div>
+      <div>Desarrollado por Roxana Noemí Saucedo Rojas</div>
+    </div>
+
+    <div class="legal-notice">
+      <p>🔐 <strong>AUTORÍA TÉCNICA Y DISEÑO UX/UI:</strong> Desarrollado, creado y maquetado por <strong>Roxana Noemí Saucedo Rojas</strong> (Contacto: <a href="mailto:roxanan.saucedo@gmail.com">roxanan.saucedo@gmail.com</a>)[cite: 1, 13]. Todos los derechos de desarrollo web y arquitectura de interfaz reservados © 2026. Licencia Creative Commons BY-NC-ND 4.0 Internacional.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Script para animación gráfica básica en Canvas del Hero
+  const canvas = document.getElementById('orbitCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let angle = 0;
+    function resizeCanvas() {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+      const radius = Math.min(cx, cy) * 0.65;
+
+      // Órbita
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, radius, radius * 0.4, -Math.PI / 6, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(14, 118, 189, 0.3)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Centro (13)
+      ctx.fillStyle = '#0E76BD';
+      ctx.font = 'bold 36px "Archivo Black", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('13', cx, cy);
+
+      // Elemento orbitando
+      const x = cx + Math.cos(angle) * radius;
+      const y = cy + Math.sin(angle) * (radius * 0.4);
+      ctx.beginPath();
+      ctx.arc(x, y, 8, 0, Math.PI * 2);
+      ctx.fillStyle = '#0B9345';
+      ctx.fill();
+
+      angle += 0.015;
+      requestAnimationFrame(draw);
+    }
+    draw();
+  }
+</script>
+
+</body>
+</html><!--
   ═══════════════════════════════════════════════════════════════════════════════
   CONOCIMIENTO EN ÓRBITA — Portal Institucional & Revista Digital
   ═══════════════════════════════════════════════════════════════════════════════
